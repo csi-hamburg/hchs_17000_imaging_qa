@@ -35,7 +35,7 @@ QA of MRI data was conducted both quantitatively and qualitatively. First, a tra
    * *pvs*: visual inspection
 * ASL: visual inspection of *ASLprep* visual reports
 
-### Comparison of benchmark metrics between current (17k) and previous (10k) HCHS export
+### HCHS Export Comparison: Benchmark Metrics for Overlapping Subjects (Current 17k vs. Previous 10k Runs)
 
 ![estimated_total_intracranial_volume_scatter_plot](https://github.com/user-attachments/assets/0cc6aeff-71db-4d81-8f22-20ebcfd7a876)
 
