@@ -38,10 +38,10 @@ A flow chart visualizing our approach and the number of excluded subjects can be
 * ASL: visual inspection of *ASLprep* visual reports
 
 ### Comparison of benchmark metrics between current and previous HCHS export
-* Total intracranial volume
+* Total intracranial volume <br>
 ![estimated_total_intracranial_volume_scatter_plot](https://github.com/user-attachments/assets/0cc6aeff-71db-4d81-8f22-20ebcfd7a876)
 
-* Brain volume
+* Brain volume <br>
 ![brain_volume_scatter_plot](https://github.com/user-attachments/assets/bdf98020-8860-4303-baee-cd129a7f2e0f)
 
 * Normalized brain volume
