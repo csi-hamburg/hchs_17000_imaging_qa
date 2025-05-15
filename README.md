@@ -36,6 +36,10 @@ QA of MRI data was conducted both quantitatively and qualitatively. First, a tra
 * ASL: visual inspection of *ASLprep* visual reports
 
 ### HCHS Export Comparison: Benchmark Metrics for Overlapping Subjects (Current 17k vs. Previous 10k Runs)
+The release of the most recent HCHS data export marks a significant update, as all underlying data has been reprocessed using our latest analytical pipelines. This comprehensive reprocessing was undertaken to incorporate substantial optimizations to the neuroimaging pipelines we employ. These updates include version updates, bug fixes, and performance enhancements, ensuring that the current data benefits from the most advanced and reliable processing techniques available.
+
+To transparently assess the impact of these software and pipeline modifications, this section provides a detailed comparative analysis. We focus specifically on the cohort of subjects who are present in both the current HCHS export (representing approximately 17,000 individuals, 4,400 with MRIs) and the immediately preceding export (encompassing around 10,000 individuals, 2,600 with MRIs). The shown regression plots, compare key metrics and derived values for the 2600 overlapping subjects. In sum, the metrics were highly consistent.
+
 
 ![estimated_total_intracranial_volume_scatter_plot](https://github.com/user-attachments/assets/0cc6aeff-71db-4d81-8f22-20ebcfd7a876)
 
