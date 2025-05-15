@@ -37,6 +37,35 @@ A flow chart visualizing our approach and the number of excluded subjects can be
    * *pvs*: visual inspection
 * ASL: visual inspection of *ASLprep* visual reports
 
+### Comparison of benchmark metrics between current and previous HCHS export
+* Total intracranial volume
+![estimated_total_intracranial_volume_scatter_plot](https://github.com/user-attachments/assets/0cc6aeff-71db-4d81-8f22-20ebcfd7a876)
+
+* Brain volume
+![brain_volume_scatter_plot](https://github.com/user-attachments/assets/bdf98020-8860-4303-baee-cd129a7f2e0f)
+
+* Normalized brain volume
+![brain_volume_normalized_scatter_plot](https://github.com/user-attachments/assets/bfcdf346-4c11-481b-aaf9-987dcce27c1b)
+
+* Mean cortical thickness
+![mean_cortical_thickness_scatter_plot](https://github.com/user-attachments/assets/dfa44710-3e20-45ab-ac04-5ed3f81e7154)
+
+* PSMD
+![psmd_scatter_plot](https://github.com/user-attachments/assets/9f1e74d2-c302-4ee3-ae0d-55b02e2fa0f9)
+
+* WMH volume
+![wmh_volume_scatter_plot](https://github.com/user-attachments/assets/944bdc13-35da-44ef-9c9e-f1f7f52961ae)
+
+* WMH load
+![wmh_load_scatter_plot](https://github.com/user-attachments/assets/4333c8a7-bd56-4c28-b64a-eb905dd4659c)
+
+* PVS count
+![pvs_count_scatter_plot](https://github.com/user-attachments/assets/6ceeed98-5bdf-4b1d-b5fa-3373d7278c75)
+
+
+
+
+
 ### QA Evaluation WMH sgementation accuracy
 In a subcohort of randomly selected 100 participants covering the full spectrum of WMH extend on FLAIR, WMH were segemented manually by two raters (neurologists) experienced in MRI data analysis in CSVD. Quality and accuracy of manual segmentation was checked visually by an additional junior neurologist and senior neurologist (> 10 years experience in neuroimging in cerebrovascular diseases) and manuall corrections performed if neccessary after consensus between all raters. We then calculatd the overlap with the N=100 manual segmentations using the DICE and JACCARD index and calculated the absolute difference in wmh volume. 
 
