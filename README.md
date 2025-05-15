@@ -11,12 +11,13 @@ For each MRI modality several levels of QA - from raw data to derived quantitati
 * Pipeline outputs
 
 ## QA workflow
-QA of MRI data was conducted both quantitatively and qualitatively. First, a trained neuroradiologists (board certified / "Facharzt") reviewed and documented all brain imaging data for pathologies (incidental findings). Next, DICOMs were converted to Nifit format with dcm2niix (https://github.com/rordenlab/dcm2niix) eliminating acquisitions with inconsistent volume data. Further, on the raw data level, quantitative QA measures were derived for T1w, DWI, ASL and fMRI data utilizing *MRIQC* (https://mriqc.readthedocs.io/en/stable/), *QSIprep* (https://qsiprep.readthedocs.io/en/latest/), *ASLprep* (https://aslprep.readthedocs.io/en/latest/) and *fMRIprep* (https://fmriprep.org/en/stable/). Qualitative QA of raw imaging data was subsequently performed for outliers defined by +/- 2 standard deviation from the mean for each quantitative measure described below. The quality of all FLAIR images was assessed visually. Last, derivatives of neuroimaging pipelines were assessed in order to ensure appropriate processing. Specifically, all white matter hyperintensity segmentations were visually inspected, *freesurfer* segmentations of outliers were visually inspected, registration quality from T1w to MNI space was assessed for ~900 subjects, for the *psmd* pipeline registration quality was visually assessed for outliers, for the *tbss* pipeline registration quality was assessed for all subjects, for the *fba* pipeline all fiber orientation distribution maps were visually inspected, for the *ASLprep* pipeline all visual quality reports including cerebral blood flow maps were assessed.
+QA of MRI data was conducted both quantitatively and qualitatively. First, a trained neuroradiologists (board certified / "Facharzt") reviewed and documented all brain imaging data for pathologies (incidental findings). Next, DICOMs were converted to Nifti format with dcm2niix (https://github.com/rordenlab/dcm2niix) eliminating acquisitions with inconsistent volume data. Further, on the raw data level, quantitative QA measures were derived for T1w, DWI, ASL and fMRI data utilizing *MRIQC* (https://mriqc.readthedocs.io/en/stable/), *QSIprep* (https://qsiprep.readthedocs.io/en/latest/), *ASLprep* (https://aslprep.readthedocs.io/en/latest/) and *fMRIprep* (https://fmriprep.org/en/stable/). Qualitative QA of raw imaging data was subsequently performed for outliers defined by +/- 2 standard deviation from the mean for each quantitative measure described below. The quality of all FLAIR images was assessed visually. Last, derivatives of neuroimaging pipelines were assessed in order to ensure appropriate processing. Specifically, white matter hyperintensity segmentations were visually inspected (all outliers and 50 random subjects per quartile), perivascular space segmentations were visually inspected (all outliers and 50 random subjects per quartile), *freesurfer* segmentations of outliers were visually inspected, for the *psmd* pipeline registration quality was visually assessed for outliers, for the *tbss* pipeline registration quality was assessed for all subjects, for the *fba* pipeline all fiber orientation distribution maps were visually inspected, for the *ASLprep* pipeline all visual quality reports including cerebral blood flow maps were assessed.
 
 A flow chart visualizing our approach and the number of excluded subjects can be found here: https://github.com/csi-hamburg/hchs_qa/blob/main/flowchart_qa.md
 
 ## Overview of quantitative QA measures used
-* T1w: Quality rating (A-E) and z-score (*CAT12*), coefficient of joint variation (*MRIQC*)
+* T1w: Normalized product of IQR and quartic mean Z-score (*CAT12*), coefficient of joint variation (*MRIQC*), entropy-focus criterion (*MRIQC*), Dietrich signal-to-noise ratio (*MRIQC*), contrast-to-noise ratio (*MRIQC*), residual partial volume effects of gray matter (*MRIQC*)
+   * *CAT12* (segmentations and surfaces): Normalized product of IQR and quartic mean Z-score   
    * *freesurfer*: BrainSegVolNotVentSurf, lh.aparc.thickness, Left/RightCerebellumWhiteMatter, SupraTentorialVolNotVent, lh_lateraloccipital_thickness
 * DWI: frame-wise displacement (*QSIprep*) and number of bad slices (*DSI Studio*)
    * *psmd*: global psmd
@@ -33,10 +34,11 @@ A flow chart visualizing our approach and the number of excluded subjects can be
    * *psmd*: visual inspection of registration to template/MNI space
    * *fba*: visual inspection of fiber orientation distributions
 * T1w: visual inspection of raw data, visual inspection of registration to MNI space
+   * *pvs*: visual inspection
 * ASL: visual inspection of *ASLprep* visual reports
 
 ### QA Evaluation WMH sgementation accuracy
-In a subcohort of randomly selected 100 participants covering the full spectrum of WMH extend on FLAIR, WMH were segemented manually by a rater (neurologist) experienced in MRI data analysis in CSVD. Quality and accuracy of manual segmentation was checked visually by an additional junior neurologist and senior neurologist (> 10 years experience in neuroimging in cerebrovascular diseases) and manuall corrections performed if neccessary after consensus between all raters. We then calculatd the overlap with the N=100 manual segmentations using the DICE and JACCARD index and calculated the absolute difference in wmh volume. 
+In a subcohort of randomly selected 100 participants covering the full spectrum of WMH extend on FLAIR, WMH were segemented manually by two raters (neurologists) experienced in MRI data analysis in CSVD. Quality and accuracy of manual segmentation was checked visually by an additional junior neurologist and senior neurologist (> 10 years experience in neuroimging in cerebrovascular diseases) and manuall corrections performed if neccessary after consensus between all raters. We then calculatd the overlap with the N=100 manual segmentations using the DICE and JACCARD index and calculated the absolute difference in wmh volume. 
 
 ### WMH volumes [ml] for N=100 participants with manual WMH segmentations, grouped by quartiles.
 
@@ -71,18 +73,4 @@ JACCARD in total:
 absolute volume difference in total:
 
 ![image](https://user-images.githubusercontent.com/50658271/181270335-37072c18-a0de-4eea-98c7-3762b93dffdd.png)
-
-
-#### Descriptive statistics of WMH volumes fom all available data in the HCHS (N=2483)
-
-All WMH segmentations (run with bianca and LOCATE) were visually inspected. Below the WMH volume [in ml] and the WMH load (normalized for intracranial volume):
-
-![image](https://user-images.githubusercontent.com/50658271/178995283-e500a6ea-77ae-4392-86f0-bc8953728af6.png)
-
-#### Distribution of the WMH in MNI space from all available data in the HCHS (N=2483), both unthresholded and thresholded (min 50, max 500):
-
-
-![heatmap_nothresh](https://user-images.githubusercontent.com/50658271/181269077-c1a3e815-e022-440c-a31d-d1c2c5e08a2c.png)
-
-![heatmap_thresh](https://user-images.githubusercontent.com/50658271/181269104-2112e5f7-7449-4a58-b89c-aa7e17d3a3d8.png)
 
