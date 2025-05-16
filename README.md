@@ -16,7 +16,7 @@ QA of MRI data was conducted both quantitatively and qualitatively. First, a tra
 ## Overview of quantitative QA measures used
 * T1w: Normalized product of IQR and quartic mean Z-score (*CAT12*), coefficient of joint variation (*MRIQC*), entropy-focus criterion (*MRIQC*), Dietrich signal-to-noise ratio (*MRIQC*), contrast-to-noise ratio (*MRIQC*), residual partial volume effects of gray matter (*MRIQC*)
    * *CAT12* (segmentations and surfaces): Normalized product of IQR and quartic mean Z-score   
-   * *freesurfer*: BrainSegVolNotVentSurf, lh.aparc.thickness, Left/RightCerebellumWhiteMatter, SupraTentorialVolNotVent, lh_lateraloccipital_thickness
+   * *freesurfer*: BrainSegVolNotVentSurf, lh/rh.aparc.thickness, Left/RightCerebellumWhiteMatter, SupraTentorialVolNotVent, lh/rh_lateraloccipital_thickness
 * DWI: frame-wise displacement (*QSIprep*) and number of bad slices (*DSI Studio*)
    * *psmd*: global psmd
    * *freewater*: FW, FA-t
