@@ -35,7 +35,7 @@ QA of MRI data was conducted both quantitatively and qualitatively. First, a tra
    * *pvs*: visual inspection
 * ASL: visual inspection of *ASLprep* visual reports
 
-### HCHS export comparison: benchmark metrics for overlapping subjects (current 17k vs. previous 10k)
+## HCHS export comparison: benchmark metrics for overlapping subjects (current 17k vs. previous 10k)
 The release of the most recent HCHS data export marks a significant update, as all underlying data has been reprocessed using our latest analytical pipelines. This comprehensive reprocessing was undertaken to incorporate newly released participant data and substantial optimizations to the neuroimaging pipelines we employ. These updates include version updates, bug fixes, and performance enhancements, ensuring that the current data benefits from the most advanced and reliable processing techniques available.
 
 To transparently assess the impact of these software and pipeline modifications, this section provides a detailed comparative analysis. We focus specifically on the cohort of subjects who are present in both the current HCHS export (representing approximately 17,000 individuals, 4,400 with MRIs) and the immediately preceding export (encompassing around 10,000 individuals, 2,600 with MRIs). The shown regression plots compare benchmark metrics we frequently analyze in our projects. In sum, the metrics were highly consistent between exports.
@@ -61,7 +61,7 @@ To transparently assess the impact of these software and pipeline modifications,
 
 
 
-### QA Evaluation WMH sgementation accuracy
+## QA Evaluation WMH sgementation accuracy
 In a subcohort of randomly selected 100 participants covering the full spectrum of WMH extend on FLAIR, WMH were segemented manually by two raters (neurologists) experienced in MRI data analysis in CSVD. Quality and accuracy of manual segmentation was checked visually by an additional junior neurologist and senior neurologist (> 10 years experience in neuroimging in cerebrovascular diseases) and manuall corrections performed if neccessary after consensus between all raters. We then calculatd the overlap with the N=100 manual segmentations using the DICE and JACCARD index and calculated the absolute difference in wmh volume. 
 
 ### WMH volumes [ml] for N=100 participants with manual WMH segmentations, grouped by quartiles.
